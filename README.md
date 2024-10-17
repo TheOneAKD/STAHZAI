@@ -13,19 +13,29 @@ The results of this experiment could be applied in astronomy to identify stars w
 Can an AI model accurately predict star composition, classification (if we get far enough then also habitable zone) by analyzing a spectroscopy diagram of a star?
 
 **Background research:**
-Doesn’t currently exist for AI predicting star composition 
-Spectrum of star can be caused by chemistry composition and temperature 
-Composition of most stars is like sun
-Spectroscopy data is already available, key to our use
-Different elements are created in different temperatures
-Pressure affects spectrum by number of collisions and ionization
-Photosphere(visible layer of star) can determine which element lines appear
-Some elements have identical wavelengths 
-H and He make around 96-99% of mass
-Must take into account Doppler effect (forward and backwards(shifted) and rotation(thicker) lines)
-Luminosity can create thicker lines
+Doesn’t currently exist for AI predicting star composition
 
-Atharv already has a python program that will test different AI builds and output the most accurate one, so we can implement this into our STAHZAI (Stellar Types And Habitable Zone Artificial Intelligence)
+- Spectrum of star can be caused by chemistry composition and temperature 
+
+- Composition of most stars is like sun
+
+- Spectroscopy data is already available, key to our use
+
+- Different elements are created in different temperatures
+
+- Pressure affects spectrum by number of collisions and ionization
+
+- Photosphere(visible layer of star) can determine which element lines appear
+
+- Some elements have identical wavelengths 
+
+- H and He make around 96-99% of mass
+
+- Must take into account Doppler effect (forward and backwards(shifted) and rotation(thicker) lines)
+
+- Luminosity can create thicker lines
+
+- Atharv already has a python program that will test different AI builds and output the most accurate one, so we can implement this into our STAHZAI (In the Github)
 
 **Links to sources :**
 Link to sdss: http://cas.sdss.org/dr18/VisualTools/navi
