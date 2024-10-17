@@ -1,4 +1,4 @@
-# STAHZAI
+# STAHZAI - A Really Awesome Project 
 **Project Title: Star Seekers: AI Mapping of Stellar Types and Habitable Zones (STAHZAI)**
 
 **Favorite topic Idea #1:** AI Model that can predict Star Composition, Classification, and Distance to Habitable Zone
