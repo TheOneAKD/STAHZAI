@@ -29,8 +29,11 @@ Atharv already has a python program that will test different AI builds and outpu
 
 **Links to sources :**
 Link to sdss: http://cas.sdss.org/dr18/VisualTools/navi
+
 Link to GAIA Star Data: https://cdn.gea.esac.esa.int/Gaia/gdr3/Astrophysical_parameters/astrophysical_parameters/ 
+
 Data example: http://specdash.idies.jhu.edu/?catalog=sdss&specid=4252649379880785920
+
 Spectra of stars: https://courses.lumenlearning.com/suny-astronomy/chapter/the-spectra-of-stars-and-brown-dwarfs/ (go to the end) 
 
 **Hypothesis (must be testable in the format shown below):** 
