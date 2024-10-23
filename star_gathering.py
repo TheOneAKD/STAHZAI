@@ -76,7 +76,7 @@ def query_star_info(star_name):
 
 def get_star_names(required_count, badNameCounter):
     # Retrieve a list of known star names from Vizier's Bright Star Catalogue
-    Vizier.ROW_LIMIT = 1000  # Temporarily set a high limit to get more names if needed
+    Vizier.ROW_LIMIT = 10000  # Temporarily set a high limit to get more names if needed
     result = Vizier.get_catalogs("V/50")[0]  # Bright Star Catalogue
     star_names = result['Name']
     
@@ -119,5 +119,5 @@ def compile_dataset(row_count):
     print(f"Bad Name Counter: {counter}")
 
 # Example usage:
-row_count = 100  # Number of real star names to retrieve and use
+row_count = 1500  # Number of real star names to retrieve and use
 compile_dataset(row_count)
