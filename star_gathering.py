@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 # Define the directory to save images
 image_dir = r"C:\Users\Jyoti\OneDrive\Desktop\Coding\SciRe 2024-25 STAHZAI\images"
 os.makedirs(image_dir, exist_ok=True)  # Create directory if it doesn't exist
+badNameCounter = 0
 
 # Define a custom Simbad query to get specific details about stars
 Simbad.add_votable_fields('flux(V)', 'otype', 'sptype', 'distance', 'diameter')
@@ -47,7 +48,7 @@ def query_star_info(star_name):
         return None
     
     result = Simbad.query_object(star_name)
-    print(result.colnames)
+    # print(result.colnames)
     if result:
         star_type = result['SP_TYPE'][0] if 'SP_TYPE' in result.colnames else "Unknown"
         luminosity = result['FLUX_V'][0] if 'FLUX_V' in result.colnames and result['FLUX_V'][0] else "Unknown"
@@ -73,7 +74,7 @@ def query_star_info(star_name):
         print(f"Could not retrieve information for {star_name}.")
         return None
 
-def get_star_names(required_count):
+def get_star_names(required_count, badNameCounter):
     # Retrieve a list of known star names from Vizier's Bright Star Catalogue
     Vizier.ROW_LIMIT = 1000  # Temporarily set a high limit to get more names if needed
     result = Vizier.get_catalogs("V/50")[0]  # Bright Star Catalogue
@@ -82,7 +83,7 @@ def get_star_names(required_count):
     # Clean up and filter names
     clean_names = []
     for name in star_names:
-        print(name)
+        # print(name)
         if len(clean_names) >= required_count:
             break  # Stop once we have enough valid names
         
@@ -91,13 +92,15 @@ def get_star_names(required_count):
         if clean_name and Simbad.query_object(clean_name):
             clean_names.append(clean_name)
         else:
-            print(f"Skipping invalid or unrecognized star name: {clean_name}")
+            # print(f"Skipping invalid or unrecognized star name: {clean_name}")
+            # print(badNameCounter)
+            badNameCounter += 1
     
-    return clean_names
+    return clean_names, badNameCounter
 
 def compile_dataset(row_count):
     # Use real star names retrieved automatically
-    star_names = get_star_names(row_count)
+    star_names, counter = get_star_names(row_count, badNameCounter)
     data = []
     
     for star_name in star_names:
@@ -113,7 +116,8 @@ def compile_dataset(row_count):
     output_file = "star_dataset.csv"
     df.to_csv(output_file, index=False)
     print(f"Dataset compiled and saved as {output_file}")
+    print(f"Bad Name Counter: {counter}")
 
 # Example usage:
-row_count = 5  # Number of real star names to retrieve and use
+row_count = 100  # Number of real star names to retrieve and use
 compile_dataset(row_count)
